@@ -1,33 +1,26 @@
-# ============================================================
-# GSI 修补配置
-# ============================================================
-
 device:
-  model: "cannon"
-  system_name: "GSI"
-  # 分区类型：a-only / a-b
-  partition_type: "a-only"
-
+  model: "nezha"
+  system_name: "ColorOS"
+  partition_type: "a-b"
+  soc_model: "sm8850"
 kernel_patch:
-  # MTK BPF 补丁（4.14/4.19 必开）
-  enable_bpf: true
-
+  enable_bpf: false
+fix:
+  audio: true
+  selinux: true
+  vibrator: true
+  color_temp: true
+  openid: true
+  hdr: true
 gsi_inject:
-  # 注入 device_features
   features: true
-  # 注入 displayconfig
   display: true
-  # 注入 init.rc
   init: true
-  # 注入媒体配置
   media: true
-  # 注入权限白名单
   permissions: true
-
 gsi_output:
-  # 输出格式：img / zip / both
   format: "both"
-
 upload:
-  pan123: true
-  artifact: false
+  pan123: false
+  artifact: true
+  release: false
